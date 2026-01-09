@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinitum Computer Company | Onboarding Infographic</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Selected Palette: Cyber Quantum -->
+    <!-- Background: #0B1120 (Deep Space) -->
+    <!-- Card Surface: #1E293B (Dark Slate) -->
+    <!-- Primary: #38BDF8 (Sky Blue) -->
+    <!-- Secondary: #A855F7 (Electric Purple) -->
+    <!-- Accent: #22D3EE (Cyan) -->
+    <!-- Text: #F8FAFC (Ice White) -->
+
+    <!-- Narrative Plan Summary:
+    1. Hero: Intro to Mission/Vision.
+    2. Context: Line chart showing Stability vs Conflict over time.
+    3. Values: Bar chart prioritizing CIRCLE values.
+    4. Tools: Polar Area chart for tech stack.
+    5. Network: Scatter plot for Quantum Nodes.
+    6. Checklist: Doughnut gauge.
+    -->
+
+    <!-- Chart Choices Justification:
+    1. Stability: Line Chart (Chart.js) -> Goal: Change -> Shows trends over time clearly. NO SVG.
+    2. Values: Horizontal Bar (Chart.js) -> Goal: Organize/Rank -> Emphasizes the strict order of values. NO SVG.
+    3. Tools: Polar Area (Chart.js) -> Goal: Compare -> Visually distinct categories. NO SVG.
+    4. Network: Scatter (Chart.js) -> Goal: Relationships -> Simulates a node network. NO SVG.
+    5. Readiness: Doughnut (Chart.js) -> Goal: Inform -> Classic gauge style. NO SVG.
+    -->
+
+    <!-- HTML Comment Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in the output. -->
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        icc: {
+                            bg: '#0B1120',
+                            surface: '#1E293B',
+                            primary: '#38BDF8',
+                            secondary: '#A855F7',
+                            accent: '#22D3EE',
+                            text: '#F8FAFC',
+                            muted: '#94A3B8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Exo 2"', 'sans-serif'],
+                        mono: ['"Rajdhani"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B1120;
+            color: #F8FAFC;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Max width constraint */
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px; /* Base height */
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased font-sans selection:bg-icc-accent selection:text-icc-bg overflow-x-hidden">
+
+    <!-- Header Section -->
+    <header class="relative w-full py-20 px-6 text-center overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold font-mono uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-icc-primary via-icc-accent to-icc-secondary glow-text mb-4">
+                Infinitum
+            </h1>
+            <h2 class="text-xl md:text-2xl text-icc-accent font-light mb-8">
+                Computer Company
+            </h2>
+            <div class="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-icc-primary to-transparent mb-8"></div>
+            <p class="text-xl md:text-2xl text-icc-text font-light italic opacity-90">
+                "Bringing future technology to the now."
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+        <!-- Section 1: Introduction & Context (Full Width) -->
+        <section class="col-span-1 md:col-span-2 glass-card rounded-2xl p-8 shadow-2xl shadow-icc-primary/10">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold text-icc-primary mb-4 border-l-4 border-icc-secondary pl-4">The Origin Protocol</h3>
+                    <p class="text-icc-muted text-lg leading-relaxed mb-4">
+                        The ICC was forged in fire. Started during the turbulent final days of <strong class="text-icc-text">World War III</strong>, we didn't just survive; we evolved. By leveraging advancements in <span class="text-icc-accent">Quantum Knowledge</span> and <span class="text-icc-accent">Hyper-Encryption</span>, we established a stronghold of stability in a fracturing world.
+                    </p>
+                    <p class="text-icc-text text-lg leading-relaxed">
+                        Today, we are the architects of a new peace, connecting the world through <strong>Quantum Internet</strong> and redefining logistics with <strong>Quantum Aviation</strong>.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 flex flex-col items-center">
+                    <div class="chart-container">
+                        <canvas id="historyChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-icc-muted mt-2">
+                        Fig 1. Inverse correlation between Global Conflict and Quantum Stability over the last decade.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Core Code (#CIRCLEvalues) -->
+        <section class="col-span-1 md:col-span-2 glass-card rounded-2xl p-8 shadow-xl">
+            <h3 class="text-3xl font-bold text-icc-secondary mb-6 text-center">The #CIRCLEvalues Algorithm</h3>
+            <p class="text-icc-muted text-center max-w-2xl mx-auto mb-8 text-lg">
+                Technical brilliance is meaningless without moral clarity. Our values are not suggestions; they are <strong>non-negotiable</strong> and <strong>strictly ordered</strong>. We prioritize Consent above all else.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Visual List -->
+                <div class="col-span-1 space-y-4 font-mono">
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-icc-primary text-icc-bg font-bold">1</span>
+                        <span class="text-xl text-icc-primary">Consent</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-icc-accent text-icc-bg font-bold">2</span>
+                        <span class="text-xl text-icc-accent">Integrity</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-icc-secondary text-icc-bg font-bold">3</span>
+                        <span class="text-xl text-icc-secondary">Respect</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full border border-icc-muted text-icc-muted font-bold">4</span>
+                        <span class="text-xl text-icc-muted">Continuity</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full border border-icc-muted text-icc-muted font-bold">5</span>
+                        <span class="text-xl text-icc-muted">Love</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full border border-icc-muted text-icc-muted font-bold">6</span>
+                        <span class="text-xl text-icc-muted">Ethics</span>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="chart-container">
+                        <canvas id="valuesChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-icc-muted mt-2">
+                        Fig 2. Priority Weighting of Corporate Values. Note: Consent is the foundational constant.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Toolbelt -->
+        <section class="col-span-1 glass-card rounded-2xl p-6 shadow-lg">
+            <h3 class="text-2xl font-bold text-icc-accent mb-4">Operational Toolbelt</h3>
+            <p class="text-icc-muted mb-6">
+                Our stack blends legacy stability with quantum interfaces. From secure comms to the proprietary Q-Net.
+            </p>
+            <div class="chart-container">
+                <canvas id="toolsChart"></canvas>
+            </div>
+            <div class="mt-6 grid grid-cols-2 gap-4 text-sm font-mono text-icc-text">
+                <div class="p-3 bg-icc-surface rounded border border-icc-primary/20">
+                    <strong class="text-icc-primary">Slack:</strong><br>Async Coordination
+                </div>
+                <div class="p-3 bg-icc-surface rounded border border-icc-primary/20">
+                    <strong class="text-icc-primary">GitHub:</strong><br>Codebase CNS
+                </div>
+                <div class="p-3 bg-icc-surface rounded border border-icc-primary/20">
+                    <strong class="text-icc-primary">X:</strong><br>Public Broadcast
+                </div>
+                <div class="p-3 bg-icc-surface rounded border border-icc-secondary/20">
+                    <strong class="text-icc-secondary">Q-Net:</strong><br>Level 3 Clearance
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Global Infrastructure -->
+        <section class="col-span-1 glass-card rounded-2xl p-6 shadow-lg">
+            <h3 class="text-2xl font-bold text-icc-accent mb-4">Quantum Infrastructure</h3>
+            <p class="text-icc-muted mb-6">
+                Visualizing the distribution of Entangled Nodes (Q-Net) and Aviation Waypoints across the recovery zones.
+            </p>
+            <div class="chart-container">
+                <canvas id="networkChart"></canvas>
+            </div>
+            <p class="text-sm text-center text-icc-muted mt-2">
+                Fig 3. Abstract map of secure Uplink Terminals.
+            </p>
+             <div class="mt-6 p-4 bg-icc-bg rounded-lg border border-icc-secondary/30">
+                <h4 class="text-icc-secondary font-bold mb-2">Capabilities:</h4>
+                <ul class="list-disc list-inside text-icc-muted space-y-1">
+                    <li>Unhackable Global Comms</li>
+                    <li>Instantaneous Data Transfer</li>
+                    <li>VTOL Logic Optimization</li>
+                    <li>Peacekeeping Logistics</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Day One Checklist -->
+        <section class="col-span-1 md:col-span-2 glass-card rounded-2xl p-8 shadow-2xl border-t-4 border-icc-primary">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-bold text-white mb-6">Protocol: 001_INITIATION</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-icc-surface hover:bg-opacity-80 transition-colors cursor-default">
+                            <div class="text-2xl text-icc-primary">⚡</div>
+                            <div>
+                                <h4 class="font-bold text-icc-text">Set up 2FA</h4>
+                                <p class="text-sm text-icc-muted">Quantum encryption requires strict hygiene.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-icc-surface hover:bg-opacity-80 transition-colors cursor-default">
+                            <div class="text-2xl text-icc-accent">🧬</div>
+                            <div>
+                                <h4 class="font-bold text-icc-text">Clone the Repo</h4>
+                                <p class="text-sm text-icc-muted font-mono text-xs mt-1">git clone .../onboarding-docs.git</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-icc-surface hover:bg-opacity-80 transition-colors cursor-default">
+                            <div class="text-2xl text-icc-secondary">🧠</div>
+                            <div>
+                                <h4 class="font-bold text-icc-text">Memorize Values</h4>
+                                <p class="text-sm text-icc-muted">You will be tested on the ordering.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 flex flex-col items-center justify-center">
+                    <h4 class="text-xl font-bold text-icc-primary mb-4">Onboarding Readiness</h4>
+                    <div class="chart-container" style="max-height: 300px;">
+                        <canvas id="readinessChart"></canvas>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p class="text-icc-text italic">"Work hard, be kind, and look upward."</p>
+                        <p class="text-icc-muted text-sm mt-1">- Tim Brouwer, CEO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-icc-muted text-sm border-t border-icc-surface mt-8 bg-icc-bg">
+        <p>© 2026 Infinitum Computer Company. All Rights Reserved.</p>
+        <p class="mt-2 text-xs opacity-50">Authorized Personnel Only // Quantum Encrypted Connection</p>
+    </footer>
+
+    <!-- Scripts for Charts -->
+    <script>
+        // ---------------------------------------------------------
+        // Utility: Label Wrapping Logic (Mandatory)
+        // ---------------------------------------------------------
+        function wrapLabel(label, maxLength = 16) {
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxLength) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // ---------------------------------------------------------
+        // Utility: Tooltip Callback Configuration (Mandatory)
+        // ---------------------------------------------------------
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // ---------------------------------------------------------
+        // Chart 1: History Line Chart
+        // ---------------------------------------------------------
+        const ctxHistory = document.getElementById('historyChart').getContext('2d');
+        const historyChart = new Chart(ctxHistory, {
+            type: 'line',
+            data: {
+                labels: ['War Escalation', 'The Fracture', 'ICC Founded', 'Armistice', 'Rebuilding', 'Present Day'],
+                datasets: [
+                    {
+                        label: 'Global Conflict Level',
+                        data: [95, 100, 80, 40, 20, 5],
+                        borderColor: '#F43F5E', // Red for conflict
+                        backgroundColor: 'rgba(244, 63, 94, 0.1)',
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 0
+                    },
+                    {
+                        label: 'Quantum Stability',
+                        data: [5, 10, 35, 60, 85, 98],
+                        borderColor: '#38BDF8', // ICC Primary
+                        backgroundColor: (context) => {
+                            const ctx = context.chart.ctx;
+                            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+                            gradient.addColorStop(0, 'rgba(56, 189, 248, 0.5)');
+                            gradient.addColorStop(1, 'rgba(56, 189, 248, 0.0)');
+                            return gradient;
+                        },
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#94A3B8' } },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8', maxRotation: 45, minRotation: 45 }
+                    }
+                }
+            }
+        });
+
+        // ---------------------------------------------------------
+        // Chart 2: Values Horizontal Bar Chart
+        // ---------------------------------------------------------
+        const ctxValues = document.getElementById('valuesChart').getContext('2d');
+        const labelsValues = ['CONSENT', 'INTEGRITY', 'RESPECT', 'CONTINUITY', 'LOVE', 'ETHICS'];
+        const processedLabelsValues = labelsValues.map(l => wrapLabel(l));
+
+        const valuesChart = new Chart(ctxValues, {
+            type: 'bar',
+            data: {
+                labels: processedLabelsValues,
+                datasets: [{
+                    label: 'Priority Weighting (Non-negotiable)',
+                    data: [100, 85, 70, 55, 40, 25], // Visual weight
+                    backgroundColor: [
+                        '#38BDF8', // Consent - Primary
+                        '#22D3EE', 
+                        '#A855F7', 
+                        '#818CF8', 
+                        '#6366F1', 
+                        '#94A3B8'  // Ethics - Muted but solid
+                    ],
+                    borderRadius: 4,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    x: {
+                        display: false,
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#F8FAFC',
+                            font: { family: '"Rajdhani"', size: 14, weight: 'bold' }
+                        },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // ---------------------------------------------------------
+        // Chart 3: Tools Polar Area Chart
+        // ---------------------------------------------------------
+        const ctxTools = document.getElementById('toolsChart').getContext('2d');
+        const labelsTools = ['Slack (Comms)', 'GitHub (Dev)', 'X (Broadcast)', 'Q-Net (Future)', 'Security (2FA)'];
+        const processedLabelsTools = labelsTools.map(l => wrapLabel(l));
+
+        const toolsChart = new Chart(ctxTools, {
+            type: 'polarArea',
+            data: {
+                labels: processedLabelsTools,
+                datasets: [{
+                    label: 'Usage Intensity',
+                    data: [90, 85, 60, 40, 100],
+                    backgroundColor: [
+                        'rgba(56, 189, 248, 0.7)',  // Slack
+                        'rgba(168, 85, 247, 0.7)',  // GitHub
+                        'rgba(248, 250, 252, 0.5)', // X
+                        'rgba(34, 211, 238, 0.7)',  // Q-Net
+                        'rgba(244, 63, 94, 0.7)'    // Security
+                    ],
+                    borderColor: '#0B1120',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: { color: '#94A3B8', font: { size: 12 } }
+                    },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    r: {
+                        ticks: { display: false },
+                        grid: { color: '#334155' },
+                        pointLabels: { display: false } // Hiding on chart to use Legend
+                    }
+                }
+            }
+        });
+
+        // ---------------------------------------------------------
+        // Chart 4: Network Scatter Plot
+        // ---------------------------------------------------------
+        const ctxNetwork = document.getElementById('networkChart').getContext('2d');
+        
+        // Generate random nodes
+        const generateNodes = (count) => {
+            let nodes = [];
+            for(let i=0; i<count; i++) {
+                nodes.push({
+                    x: Math.random() * 100,
+                    y: Math.random() * 100,
+                    r: Math.random() * 5 + 2 // radius
+                });
+            }
+            return nodes;
+        };
+
+        const networkChart = new Chart(ctxNetwork, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    {
+                        label: 'Active Uplinks',
+                        data: generateNodes(15),
+                        backgroundColor: '#38BDF8',
+                        borderColor: '#22D3EE',
+                    },
+                    {
+                        label: 'Pending Entanglement',
+                        data: generateNodes(10),
+                        backgroundColor: 'rgba(168, 85, 247, 0.5)',
+                        borderColor: '#A855F7',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: '#94A3B8' } },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    x: { display: false, grid: { color: '#1E293B' } },
+                    y: { display: false, grid: { color: '#1E293B' } }
+                }
+            }
+        });
+
+        // ---------------------------------------------------------
+        // Chart 5: Readiness Doughnut
+        // ---------------------------------------------------------
+        const ctxReadiness = document.getElementById('readinessChart').getContext('2d');
+        const readinessChart = new Chart(ctxReadiness, {
+            type: 'doughnut',
+            data: {
+                labels: ['Tasks Complete', 'Remaining'],
+                datasets: [{
+                    data: [1, 4], // 1 done (reading), 4 to do
+                    backgroundColor: [
+                        '#22D3EE', // Cyan
+                        '#1E293B'  // Dark
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig,
+                    title: {
+                        display: true,
+                        text: 'Day 1 Progress: 20%',
+                        position: 'bottom',
+                        color: '#F8FAFC',
+                        padding: 20
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
